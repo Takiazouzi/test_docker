@@ -4,7 +4,8 @@ l'Application est composée de trois conteneurs Docker :
 - `frontend` : Nginx sert la page de connexion et relaie `/api/` vers le backend.
 - `backend` : API Python Flask qui vérifie les identifiants.
 - `database` : MySQL 8.4 qui stocke les utilisateurs.
-<img src=test.png>
+
+<img src=test-docker.png>
 Les trois conteneurs partagent le réseau Docker `app-network`. Seul le frontend publie un port sur la VM. Les données MySQL sont persistées par un bind mount `-v`.
 
 ## 1. Prérequis
