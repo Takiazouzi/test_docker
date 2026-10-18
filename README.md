@@ -58,6 +58,12 @@ Configurez aussi la base de donnée tel que:
 - [ ] Le nom de la base de données login_db: MYSQL_DATABASE='login_db'
 - [ ] Le nom d'utilisateur applicatif appuser: MYSQL_USER='appuser'
 - [ ] Le mot de passe de cet utilisateur: MYSQL_PASSWORD='AppPass_ChangeMe123!'
+Aprés le démarrage attends que MySQL soit prêt :
+```bash
+docker logs -f database
+```
+Quand le journal indique que MySQL est prêt, quittez l'affichage avec `Ctrl+C`. Cela ne stoppe pas le conteneur.
+
 ### 7. Démarrage du Conteneur Backend
 - [ ] Lancez le conteneur backend à partir de l'image login-backend:1.0.
 Il doit :
@@ -75,7 +81,7 @@ ADMIN_PASSWORD='DockerLab123!'
 - [ ] Démarrez le conteneur frontend à partir de l'image login-frontend:1.0.
 Il doit :
 - [ ] Être connecté au réseau app-network.
-- [ ] avoir Le mapping de port 80 avec 8080; HINT: inspecte le fichier frontend/nginx.conf ou bien frontend/Dockerfile pour connaitre le port du conteneur.
+- [ ] Être accessible sur l'hote en 8080; **HINT**: inspecte le fichier frontend/nginx.conf et frontend/Dockerfile pour connaitre le port du conteneur.
 ### 9 Tester la connexion 
 - [ ] Ouvrez l'application dans le navigateurde la VM.
 - [ ] entrer ces Identifiants de démonstration :
