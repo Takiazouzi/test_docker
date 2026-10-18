@@ -23,6 +23,7 @@ cd  Test-Docker
 ```bash
 bash env.sh
 ```
+[Ouvrir l'exercice interactif](exercice.html)
 # Questions
 ### 1. Créer le Dockerfile du backend
 
