@@ -4,7 +4,7 @@ l'Application est composée de trois conteneurs Docker :
 - `frontend` : Nginx sert la page de connexion et relaie `/api/` vers le backend.
 - `backend` : API Python Flask qui vérifie les identifiants.
 - `database` : MySQL 8.4 qui stocke les utilisateurs.
-
+<img src=test.png>
 Les trois conteneurs partagent le réseau Docker `app-network`. Seul le frontend publie un port sur la VM. Les données MySQL sont persistées par un bind mount `-v`.
 
 ## 1. Prérequis
@@ -64,13 +64,13 @@ Il doit :
 - [ ] Être connecté au réseau app-network.
 - [ ] Être en mode `detached`
 - [ ] Recevoir les variables d'environnement nécessaires qui sont:
-DB_HOST='database'
-DB_PORT='3306' 
-DB_NAME='login_db'
-DB_USER='appuser' 
-DB_PASSWORD='AppPass_ChangeMe123!'
-ADMIN_USERNAME='student' 
-ADMIN_PASSWORD='DockerLab123!'
+DB_HOST='database'  
+DB_PORT='3306'  
+DB_NAME='login_db'  
+DB_USER='appuser'   
+DB_PASSWORD='AppPass_ChangeMe123!'  
+ADMIN_USERNAME='student'   
+ADMIN_PASSWORD='DockerLab123!'  
 ### 8. Démarrage du conteneur Frontend
 - [ ] Démarrez le conteneur frontend à partir de l'image login-frontend:1.0.
 Il doit :
