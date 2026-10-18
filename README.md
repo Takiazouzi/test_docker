@@ -50,23 +50,24 @@ Ce répertoire doit stocker les données de MySQL en dehors du cycle de vie du c
 Démarrez ensuite un conteneur
 - nommé `database`
 - en mode `detached`
-- à partir de l'image officielle `mysql:8.4`.
+- à partir de l'image officielle `docker.io/library/mysql:8.4`.
 - Le réseau `app-network`.
 - Persite les données du conteneur `/var/lib/mysql` en utilisant le montage `-v`, faits le nécessaire pour que le conteneur aura la permission de partager les données sous le réperoire hote.
 Configurez aussi la base de donnée tel que:
-- Le mot de passe administrateur MySQL: `MYSQL_ROOT_PASSWORD='RootPass_ChangeMe123!'`
+- Le mot de passe administrateur MySQL: `MYSQL_ROOT_PASSWORD='RootPass123!'`
 - Le nom de la base de données login_db: `MYSQL_DATABASE='login_db'`
 - Le nom d'utilisateur applicatif appuser: `MYSQL_USER='appuser'`
-- Le mot de passe de cet utilisateur: `MYSQL_PASSWORD='AppPass_ChangeMe123!'`
+- Le mot de passe de cet utilisateur: `MYSQL_PASSWORD='AppPass123!'`
 Aprés le démarrage attends que MySQL soit prêt :
 ```bash
 docker logs -f database
 ```
-Quand le journal indique que MySQL est prêt, quittez l'affichage avec `Ctrl+C`. Cela ne stoppe pas le conteneur.
+Quand le journal indique que MySQL est prêt et est à l'écoute (3306), commence l'étape suivante.
 
 ### 7. Démarrage du Conteneur Backend
 - Lancez le conteneur backend à partir de l'image `login-backend:1.0`.
 Il doit :
+- nommé `backend`
 - Être connecté au réseau `app-network`.
 - Être en mode `detached`
 - Recevoir les variables d'environnement nécessaires qui sont:
@@ -74,13 +75,15 @@ Il doit :
 `DB_PORT='3306'`  
 `DB_NAME='login_db'`  
 `DB_USER='appuser'`     
-`DB_PASSWORD='AppPass_ChangeMe123!'`    
+`DB_PASSWORD='AppPass123!'`    
 `ADMIN_USERNAME='student'`    
 `ADMIN_PASSWORD='DockerLab123!'`  
 ### 8. Démarrage du conteneur Frontend
 - Démarrez le conteneur frontend à partir de l'image `login-frontend:1.0`.
 Il doit :
+- nommé `frontend`
 - Être connecté au réseau `app-network`.
+- Être en mode `detached`
 - Être accessible sur l'hote en `8080`; **HINT**: inspecte le répertoire `frontend` pour connaitre le port du conteneur.
 ### 9 Tester la connexion 
 - Ouvrez l'application dans le navigateurde la VM.
