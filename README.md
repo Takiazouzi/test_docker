@@ -25,7 +25,10 @@ bash env.sh
 ```
 # Questions
 ### 1. Créer le Dockerfile du backend
-- [ ] Le backend doit être construit à partir d'une image Python officielle nommé python:3.12-slim
+<label>
+  <input type="checkbox">
+Le backend doit être construit à partir d'une image Python officielle nommé python:3.12-slim
+</label>
 - [ ] Définit les variables d'environnement PYTHONDONTWRITEBYTECODE=1 et PYTHONUNBUFFERED=1
 - [ ] Définir le répertoire de travail /app.
 - [ ] Copier le fichier requirements.txt.
